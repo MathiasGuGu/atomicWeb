@@ -1,6 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-const Navbar = () => {
+import React, { useEffect, useState } from 'react'
+import { Link, Outlet } from 'react-router-dom'
+const Navbar = ({streak}) => {
+
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  const getUserLogin = () => {
+    const name = localStorage.getItem("user");
+    if (name) setIsLoggedIn(true)
+  }
+
+  useEffect(() =>{
+      getUserLogin()
+  },[onstorage])
+
   return (
     <div class="navbar bg-base-100">
     <div class="navbar-start">
@@ -8,17 +21,27 @@ const Navbar = () => {
         <label tabindex="0" class="btn btn-ghost btn-circle">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
         </label>
-        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-          <li><a>Homepage</a></li>
-          <li><a>Habits</a></li>
-          <li><a>About</a></li>
+        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 h-96 flex items-center justify-evenly">
+          <Link to="/">
+            <li><a>Homepage</a></li>
+          </Link>
+          <Link to="/habits">
+            <li><a>Habits</a></li>
+          </Link>
+          <Link to="/leaderboard">
+            <li><a>Leaderboard</a></li>
+          </Link>
+          <Link to="/about">
+            <li><a>About</a></li>
+          </Link>
         </ul>
       </div>
     </div>
     <div class="navbar-center">
-        <Link to="/Homepage">
+        <Link to="/">
       <a class="btn btn-ghost normal-case text-xl">Atomic Habits</a>
       </Link>
+      <span className='mx-10'>Current streak: {streak}🔥</span>
     </div>
     <div class="navbar-end">
       <button class="btn btn-ghost btn-circle">
@@ -30,7 +53,16 @@ const Navbar = () => {
           <span class="badge badge-xs badge-primary indicator-item"></span>
         </div>
       </button>
+
+      {isLoggedIn ? 
+        <button className='btn btn-primary mx-5'>Profile</button>
+                  :
+        <Link to="/login">
+          <button className='btn btn-primary mx-5'>Log in</button>
+        </Link>
+      }
     </div>
+    <Outlet />
   </div>
   )
 }
