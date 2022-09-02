@@ -1,0 +1,27 @@
+
+Atomic Habits: 
+
+    *Todo project for Atomic habits*
+    _Make sure it is compatible as a Web App_
+
+    Plan:
+        ☐ Make it tempting to use. @critical
+        ☐ Make it a web app. @critical @critical @critical 
+
+
+    Code:
+        need a break; will be back; soon; @critical
+        ✔ Create a local useContext database to store all local variables and values. @today @critical @done(22-09-02 18:50)
+        ☐ Find and create a database to manage user data. @high @est(6d 24h)
+        ☐ Make some habits require a lifetime. @high
+        ☐ Make default habits increase streak. @low
+
+    Design:
+        ☐ Make searchbar visible on click. @low
+        ☐ Make navbar responsive to mobile. @high
+        ☐ Make a profile page. @high
+        ☐ Make a about page. @low
+        ☐ Theme changer. @low
+
+
+

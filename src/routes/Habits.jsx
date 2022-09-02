@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Outlet } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import { UserContext } from '../context/UserContext'
 const Habits = () => {
+    const value = useContext(UserContext)
 
     const [modalOpen, setModalOpen] = useState(false)
 
@@ -62,7 +64,7 @@ const Habits = () => {
       </label>
     <body>
     <div>
-        <Navbar streak={streak} />
+        <Navbar streak={value} />
         <div className='flex flex-col justify-start items-center gap-10 h-auto min-h-screen'>
         {habits.map((habit, index) => { return (
             

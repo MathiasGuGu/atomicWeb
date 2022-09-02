@@ -1,15 +1,17 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Navbar from '../components/Navbar'
+import { UserContext } from '../context/UserContext'
 
 const Leaderboard = () => {
 
     const users = [{name: "user1", score: 50, current_streak: 10 ,max_streak: 123},{name: "user2", score: 0, current_streak: 10, max_streak: 1},{name: "user3", score: 1, current_streak: 10, max_streak: 23},]
 
 
+    const value = useContext(UserContext)
 
   return (
     <div>
-        <Navbar />
+        <Navbar streak={value} />
         <div className='flex '>
         <div class="overflow-x-auto w-screen">
             <table class="table w-full flex items-center justify-center">

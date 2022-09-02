@@ -1,8 +1,13 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { UserContext } from '../context/UserContext'
 
 const Register = () => {
-  return (
+    const value = useContext(UserContext)
+    return (
+      
     <div class="hero min-h-screen bg-base-200">
+        <Navbar streak={value} />
+
   <div class="hero-content flex-col lg:flex-row-reverse">
     <div class="text-center lg:text-left">
       <h1 class="text-5xl font-bold">Login now!</h1>

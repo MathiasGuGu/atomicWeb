@@ -1,16 +1,20 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React, { useContext, useEffect } from 'react'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 import Navbar from '../components/Navbar'
-
+import { UserContext } from '../context/UserContext'
 const Homepage = () => {
+  const [value, setValue] = useContext(UserContext)
+
+  useEffect(() =>{
+    setValue(val => val + 1)
+  },[value])
   return (
-    <div>
-        <Navbar />
-        <Hero />
+      <>
+        <Navbar streak={value}/>
+          <Hero />
         <Footer />
-    </div>
+      </>
   )
 }
 

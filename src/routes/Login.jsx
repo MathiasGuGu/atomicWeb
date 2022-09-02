@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Navbar from '../components/Navbar'
+import { UserContext } from '../context/UserContext'
 
 const Login = () => {
 
+    const value = useContext(UserContext)
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -30,7 +32,7 @@ const Login = () => {
 
   return (
         <>
-        <Navbar />
+        <Navbar streak={value} />
             <div class="hero min-h-screen bg-base-200 flex flex-row items-center justify-center">
                 <div class="hero-content flex-col w-8/12">
                     <div class="text-center lg:text-left">

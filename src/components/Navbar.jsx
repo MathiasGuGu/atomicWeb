@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 const Navbar = ({streak}) => {
+
 
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)

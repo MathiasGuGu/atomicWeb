@@ -1,10 +1,12 @@
-import React from 'react'
+import React,  {useContext} from 'react'
+import Navbar from '../components/Navbar'
+import { UserContext } from '../context/UserContext'
 
 const About = () => {
-  return (
+    const value = useContext(UserContext)
+    return (
     <div>
-        <Navbar />
-
+        <Navbar streak={value} />
     </div>
   )
 }
