@@ -32,7 +32,6 @@ const Login = () => {
 
   return (
         <>
-        <Navbar streak={value} />
             <div class="hero min-h-screen bg-base-200 flex flex-row items-center justify-center">
                 <div class="hero-content flex-col w-8/12">
                     <div class="text-center lg:text-left">

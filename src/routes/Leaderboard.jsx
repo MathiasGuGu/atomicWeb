@@ -1,4 +1,5 @@
 import React, {useContext} from 'react'
+import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
 import { UserContext } from '../context/UserContext'
 
@@ -11,7 +12,7 @@ const Leaderboard = () => {
 
   return (
     <div>
-        <Navbar streak={value} />
+        <Layout>
         <div className='flex '>
         <div class="overflow-x-auto w-screen">
             <table class="table w-full flex items-center justify-center">
@@ -43,6 +44,7 @@ const Leaderboard = () => {
         </div>
          
         </div>
+        </Layout>
         </div>
   )
 }

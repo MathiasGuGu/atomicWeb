@@ -9,6 +9,7 @@ import Login from '../routes/Login';
 import Register from '../routes/Register';
 import { UserContext } from '../context/UserContext';
 import Navbar from './Navbar';
+import Profile from '../routes/Profile';
 
 
 
@@ -18,7 +19,7 @@ const AppRouter = () => {
 
   return (
     <>
-        <BrowserRouter >
+      <BrowserRouter >
         <UserContext.Provider value={[value, setValue]}>
         <Routes>
             <Route path='/' element={<Homepage />} />
@@ -27,6 +28,7 @@ const AppRouter = () => {
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="about" element={<About />} />
+            <Route path="profile" element={<Profile />} />
             <Route path='*' to="/" />
         </Routes>
         </UserContext.Provider>

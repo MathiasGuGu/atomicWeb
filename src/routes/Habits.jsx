@@ -1,19 +1,17 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { Outlet } from 'react-router-dom'
 import Footer from '../components/Footer'
+import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
 import { UserContext } from '../context/UserContext'
 const Habits = () => {
     const value = useContext(UserContext)
 
-    const [modalOpen, setModalOpen] = useState(false)
 
     const [habits, setHabits] = useState([{name: "1", content: "asd"},{name: "2", content: "asd"},{name: "1", content: "asd"},{name: "2", content: "asd"}])
     const [finishedHabits, setFinishedHabits] = useState([{name: "finished1", content: "asd"},{name: "finished2", content: "asd"},])
     const [nickname, setNickname] = useState("")
     const [content, setContent] = useState("")
-    const [date, setDate] = useState("")
-    const [streak, setStreak] = useState(0)
 
     const [showToast, setShowToast] = useState(false)
 
@@ -42,15 +40,10 @@ const Habits = () => {
     const changeContent = (text) => {
       setContent(text)
     }
-    
-    useEffect(() => {
-      if (habits.length === 0) {
-        setStreak(val => val += 1)
-      }
-    }, [finishedHabits])
 
   return (
     <>
+    <Layout>
     <input type="checkbox" id="my-modal-4" class="modal-toggle" />
       <label for="my-modal-4" class="modal cursor-pointer">
         <label class="modal-box relative h-80 flex flex-col items-center justify-between" for="">
@@ -64,7 +57,6 @@ const Habits = () => {
       </label>
     <body>
     <div>
-        <Navbar streak={value} />
         <div className='flex flex-col justify-start items-center gap-10 h-auto min-h-screen'>
         {habits.map((habit, index) => { return (
             
@@ -101,13 +93,12 @@ const Habits = () => {
         )})}
         </div>
           <div className='flex align-center justify-center fixed bottom-10 w-full'>
-            <div class="tooltip tooltip-info" data-tip="Add a new self-made habit to your list of habits. Habit does not increase score significantly">
+            <div class="tooltip tooltip-info" data-tip="Add a new self-made habit to your list of habits. Self made habits are not rewarded as much.">
               <label for="my-modal-4" class="btn modal-button btn-primary text-xl rounded-full flex items-center justify-center">+</label>
             </div>
           </div>
 
         
-        <Footer />
     </div>
     {showToast 
     ?
@@ -122,6 +113,7 @@ const Habits = () => {
     <></>}
     </body>
     <Outlet />
+    </Layout>
     </>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
-const Navbar = ({streak}) => {
+const Navbar = () => {
 
 
 
@@ -16,6 +16,8 @@ const Navbar = ({streak}) => {
   },[onstorage])
 
   return (
+<>
+
     <div class="navbar bg-base-100">
     <div class="navbar-start">
       <div class="dropdown">
@@ -42,7 +44,6 @@ const Navbar = ({streak}) => {
         <Link to="/">
       <a class="btn btn-ghost normal-case text-xl">Atomic Habits</a>
       </Link>
-      <span className='mx-10'>Current streak: {streak}🔥</span>
     </div>
     <div class="navbar-end">
       <button class="btn btn-ghost btn-circle">
@@ -56,15 +57,18 @@ const Navbar = ({streak}) => {
       </button>
 
       {isLoggedIn ? 
-        <button className='btn btn-primary mx-5'>Profile</button>
-                  :
+        <Link to="/profile">
+          <label for="my-drawer-4" class="drawer-button btn btn-primary">Profile</label>
+        </Link>
+                            :
         <Link to="/login">
           <button className='btn btn-primary mx-5'>Log in</button>
         </Link>
-      }
+        }
     </div>
     <Outlet />
   </div>
+  </>
   )
 }
 

@@ -7,11 +7,10 @@ Atomic Habits:
     Plan:
         ☐ Make it tempting to use. @critical
         ☐ Make it a web app. @critical @critical @critical 
-
+        
 
     Code:
-        need a break; will be back; soon; @critical
-        ✔ Create a local useContext database to store all local variables and values. @today @critical @done(22-09-02 18:50)
+        ☐ Create a local useContext database to store all local variables and values. @today @critical @started(22-09-02 18:51)
         ☐ Find and create a database to manage user data. @high @est(6d 24h)
         ☐ Make some habits require a lifetime. @high
         ☐ Make default habits increase streak. @low

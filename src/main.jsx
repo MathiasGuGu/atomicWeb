@@ -16,6 +16,6 @@ import AppRouter from './components/AppRouter';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <App/>
+  <AppRouter/>
 )
 

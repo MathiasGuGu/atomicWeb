@@ -6,7 +6,6 @@ const Register = () => {
     return (
       
     <div class="hero min-h-screen bg-base-200">
-        <Navbar streak={value} />
 
   <div class="hero-content flex-col lg:flex-row-reverse">
     <div class="text-center lg:text-left">
